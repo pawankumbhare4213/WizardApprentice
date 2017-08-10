@@ -1,0 +1,15 @@
+#START 
+Locations-
+LivingRoom Attic Garden Bedroom#1 Bedroom#2
+Items-
+LivingRoom Wizard
+Attic WeldingTorch
+Garden Well Frog
+Bedroom#1 Whiskey Bucket
+Bedroom#2 Chain
+Paths-
+LivingRoom Attic up Ladder
+LivingRoom Garden west Door
+LivingRoom Bedroom#1 east Door
+LivingRoom Bedroom#2 north Door
+#END

@@ -1,0 +1,9 @@
+Locations
+LivingRoom Attic Garden
+Items
+LivingRoom Wizard Frog Bucket Whiskey
+Attic WeldingTorch
+Garden Chain Well
+Paths
+LivingRoom Attic up Ladder
+LivingRoom Garden west Door

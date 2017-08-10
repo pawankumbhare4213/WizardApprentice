@@ -2,6 +2,7 @@ package action;
 
 import common.Inventory;
 import common.Player;
+import common.RequiredParameter;
 import exception.IllegalParameterException;
 import exception.MissingParameterException;
 import item.PickableItem;

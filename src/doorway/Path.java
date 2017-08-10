@@ -15,7 +15,7 @@ public class Path implements Name {
 	protected final Location b;
 	protected final Direction direction;
 
-	public Path(Location a, Location b, Direction direction, String name) {
+	protected Path(Location a, Location b, Direction direction, String name) {
 		this.name = name;
 		this.a = a;
 		this.b = b;

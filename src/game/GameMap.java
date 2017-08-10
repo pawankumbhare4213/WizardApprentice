@@ -1,4 +1,4 @@
-package common;
+package game;
 
 import doorway.Path;
 import exception.IllegalMapException;
@@ -9,7 +9,7 @@ import location.Location;
  * @author pawan
  *
  */
-public final class GameMap {
+public class GameMap {
 
 	private Location start;
 

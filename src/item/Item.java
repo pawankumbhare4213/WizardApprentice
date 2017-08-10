@@ -11,7 +11,7 @@ public class Item implements Name {
 
 	private String name;
 
-	public Item(String name) throws IllegalCommandException {
+	protected Item(String name) throws IllegalCommandException {
 		this.name = name;
 	}
 

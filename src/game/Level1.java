@@ -1,7 +1,6 @@
-package level;
+package game;
 
 import common.Direction;
-import common.GameMap;
 import doorway.Door;
 import doorway.Ladder;
 import exception.IllegalCommandException;
@@ -25,10 +24,11 @@ import location.Location;
  * @author pawan
  *
  */
-public class Level2 implements Level {
+public class Level1 implements Level {
 
 	@Override
 	public GameMap getMap() throws IllegalPathException, IllegalMapException, IllegalCommandException {
+		
 		Location livingRoom = new LivingRoom();
 		livingRoom.addItems(new Whiskey(), new Bucket(), new Wizard());
 

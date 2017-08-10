@@ -30,7 +30,7 @@ public class Location implements Name {
 	private final Inventory<UnpickableItem> objects;
 	private final Map<Direction, Path> adj;
 
-	public Location(String name, String description) {
+	protected Location(String name, String description) {
 		this.name = name;
 		this.inventory = new Inventory<>();
 		this.objects = new Inventory<>();
@@ -139,7 +139,7 @@ public class Location implements Name {
 			loc = queue.poll();
 			sb.append("\n").append(loc.getName()).append(" : ");
 			for (UnpickableItem item : loc.getObjects().getItems())
-				sb.append("\n").append(item.getName()).append(".");
+				sb.append("\n").append(item.getDescription()).append(".");
 			sb.append("\nItems : ");
 			for (PickableItem item : loc.getInventory().getItems())
 				sb.append(item.getName()).append("\t");

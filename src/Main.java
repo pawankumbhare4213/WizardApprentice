@@ -1,10 +1,10 @@
-import common.Game;
 import exception.GameAlreadyStartedException;
 import exception.IllegalCommandException;
 import exception.IllegalMapException;
 import exception.IllegalPathException;
 import exception.MissingParameterException;
-import level.Level2;
+import game.Game;
+import game.Level2;
 
 /**
  * @author pawan This class is used to run the game.

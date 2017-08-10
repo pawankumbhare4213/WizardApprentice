@@ -3,6 +3,7 @@ package action;
 import common.Command;
 import common.Direction;
 import common.Player;
+import common.RequiredParameter;
 import exception.IllegalParameterException;
 import exception.MissingParameterException;
 import location.Location;

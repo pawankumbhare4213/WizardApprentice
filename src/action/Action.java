@@ -16,7 +16,7 @@ public abstract class Action implements Name, Command {
 	private String name;
 	private String command;
 
-	public Action(String name, String command) {
+	protected Action(String name, String command) {
 		this.name = name;
 		this.command = command;
 	}

@@ -13,10 +13,10 @@ import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 
 import action.Action;
-import action.RequiredParameter;
 import exception.IllegalCommandException;
 import exception.IllegalParameterException;
 import exception.MissingParameterException;
+import item.PickableItem;
 
 /**
  * @author pawan
@@ -33,8 +33,8 @@ public class CommandHandler {
 
 	static {
 		CMD_ACTION_MAP = new HashMap<>();
-		String pkgName = Action.class.getPackage().getName();
-		Reflections reflections1 = new Reflections(pkgName);
+		String pkgName1 = Action.class.getPackage().getName();
+		Reflections reflections1 = new Reflections(pkgName1);
 		Set<Class<? extends Action>> subTypes1 = reflections1.getSubTypesOf(Action.class);
 		for (Class<? extends Action> cls : subTypes1) {
 			try {
@@ -49,7 +49,8 @@ public class CommandHandler {
 		}
 
 		AVAILABLE_COMMANDS = new HashSet<>();
-		Reflections reflections2 = new Reflections();
+		String pkgName2 = Direction.class.getPackage().getName();
+		Reflections reflections2 = new Reflections(pkgName2);
 		Set<Class<? extends Command>> subTypes2 = reflections2.getSubTypesOf(Command.class);
 		for (Class<? extends Command> cls : subTypes2) {
 			try {
@@ -65,10 +66,28 @@ public class CommandHandler {
 			} catch (Exception e) {
 			}
 		}
+		
+		String pkgName3 = PickableItem.class.getPackage().getName();
+		Reflections reflections3 = new Reflections(pkgName3);
+		Set<Class<? extends PickableItem>> subTypes3 = reflections3.getSubTypesOf(PickableItem.class);
+		for (Class<? extends PickableItem> cls : subTypes3) {
+			try {
+				if (cls.isEnum()) {
+					for (Command enm : cls.getEnumConstants())
+						if (!AVAILABLE_COMMANDS.add(enm.getCommand()))
+							System.err.println("Duplicate commands detected");
+				} else {
+					Command cmd = cls.newInstance();
+					if (!AVAILABLE_COMMANDS.add(cmd.getCommand()))
+						System.err.println("Duplicate commands detected");
+				}
+			} catch (Exception e) {
+			}
+		}
 
-		Reflections reflections3 = new Reflections(new ConfigurationBuilder()
-				.setUrls(ClasspathHelper.forPackage(pkgName)).setScanners(new MethodAnnotationsScanner()));
-		ANNOTATED_METHODS = reflections3.getMethodsAnnotatedWith(RequiredParameter.class);
+		Reflections reflections4 = new Reflections(new ConfigurationBuilder()
+				.setUrls(ClasspathHelper.forPackage(pkgName1)).setScanners(new MethodAnnotationsScanner()));
+		ANNOTATED_METHODS = reflections4.getMethodsAnnotatedWith(RequiredParameter.class);
 	}
 
 	public static boolean executeCommand(Player player, String cmd) {

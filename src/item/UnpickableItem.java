@@ -6,7 +6,7 @@ public class UnpickableItem extends Item {
 
 	private String description;
 
-	public UnpickableItem(String name, String decription) throws IllegalCommandException {
+	protected UnpickableItem(String name, String decription) throws IllegalCommandException {
 		super(name);
 		this.description = decription;
 	}

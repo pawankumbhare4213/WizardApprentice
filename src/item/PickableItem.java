@@ -7,7 +7,7 @@ public class PickableItem extends Item implements Command {
 
 	private String command;
 
-	public PickableItem(String name, String command) throws IllegalCommandException {
+	protected PickableItem(String name, String command) throws IllegalCommandException {
 		super(name);
 		if (command.contains(" "))
 			throw new IllegalCommandException();

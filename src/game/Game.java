@@ -1,13 +1,15 @@
-package common;
+package game;
 
+import java.io.File;
 import java.util.Scanner;
 
+import common.CommandHandler;
+import common.Player;
 import exception.GameAlreadyStartedException;
 import exception.IllegalCommandException;
 import exception.IllegalMapException;
 import exception.IllegalPathException;
 import exception.MissingParameterException;
-import level.Level;
 
 /**
  * @author pawan
@@ -22,6 +24,12 @@ public class Game {
 	public Game(Level level) throws IllegalPathException, IllegalMapException, IllegalCommandException {
 		isStarted = false;
 		map = level.getMap();
+		player = new Player("Pawan", map.getStartLocation());
+	}
+	
+	public Game(File file) throws IllegalPathException, IllegalMapException, IllegalCommandException {
+		isStarted = false;
+		map = LevelBuilder.getMap(file);
 		player = new Player("Pawan", map.getStartLocation());
 	}
 
